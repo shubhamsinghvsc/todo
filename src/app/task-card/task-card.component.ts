@@ -12,9 +12,14 @@ export class TaskCardComponent {
     @Input() index:number = 0;
 
     @Output() deleteTask = new EventEmitter<number>();
+    @Output() completeTask = new EventEmitter<number>();
 
     onDelete(){
       console.log("YOu just pressed delete button");
       this.deleteTask.emit(this.index);
+    }
+
+    taskChanged(){
+      this.completeTask.emit(this.index);
     }
 }

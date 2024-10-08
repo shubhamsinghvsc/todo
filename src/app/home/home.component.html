@@ -4,10 +4,16 @@
        <div class="flex justify-center w-1/12 bg-green-200 rounded-md hover:bg-green-600" (click)="updateTaskList()"><button >ADD</button></div>
     </div>
     <div class=" w-10/12 mx-auto text-white">
+        <h1 class="text-gray-600 font">Task List </h1>
         @for(task of taskList; track $index){
-            <app-task-card [task]="task" [index]="$index" (deleteTask)="deleteTask($event)"></app-task-card>
-        }
-        
+            <app-task-card [task]="task" [index]="$index" (deleteTask)="deleteTask($event)" (completeTask)="completeTask($event)"></app-task-card>
+        }  
+    </div>
+    <div class=" w-10/12 mx-auto text-white">
+        <h1 class="text-gray-600">Completed Task </h1>
+        @for(task of completedTaskList; track $index){
+            <app-task-card [task]="task" [index]="$index" (deleteTask)="deleteCompletedTask($event)" (completeTask)="unCompleteTask($event)"></app-task-card>
+        }  
     </div>
     
 </div>
